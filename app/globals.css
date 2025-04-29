@@ -1,0 +1,117 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 224 71% 4%;
+    --foreground: 213 31% 91%;
+
+    --primary: 45 100% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 270 100% 60%;
+    --secondary-foreground: 210 40% 98%;
+
+    --accent: 199 89% 48%;
+    --accent-foreground: 210 40% 98%;
+
+    --muted: 223 47% 11%;
+    --muted-foreground: 215 20% 65%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 213 31% 91%;
+
+    --border: 216 34% 17%;
+    --input: 216 34% 17%;
+
+    --ring: 45 100% 60%;
+  }
+}
+
+@layer base {
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.glow {
+  box-shadow: 0 0 15px theme("colors.amber.500");
+}
+
+.glow-purple {
+  box-shadow: 0 0 15px theme("colors.purple.500");
+}
+
+.glow-blue {
+  box-shadow: 0 0 15px theme("colors.blue.500");
+}
+
+.glow-gold {
+  box-shadow: 0 0 15px theme("colors.amber.400");
+}
+
+/* Gold gradient text */
+.gold-gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-amber-300 via-yellow-500 to-amber-400;
+}
+
+/* Gold-purple gradient */
+.gold-purple-gradient {
+  @apply bg-gradient-to-r from-amber-400 to-purple-500;
+}
+
+/* Interactive star animation */
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+/* Shooting star animation */
+@keyframes shootingStar {
+  0% {
+    transform: translateX(0) translateY(0) rotate(var(--angle, 30deg));
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  20% {
+    transform: translateX(calc(var(--distance, 300) * 0.2px)) translateY(calc(var(--distance, 300) * 0.2px))
+      rotate(var(--angle, 30deg));
+  }
+  100% {
+    transform: translateX(calc(var(--distance, 300) * 1px)) translateY(calc(var(--distance, 300) * 1px))
+      rotate(var(--angle, 30deg));
+    opacity: 0;
+  }
+}
+
+.interactive-star {
+  animation: twinkle 4s infinite ease-in-out;
+}
+
+/* Mouse-following effect with smoother transition */
+.parallax-star {
+  transition: transform 1s ease-out;
+}
+
+/* Gold button styles */
+.gold-button {
+  @apply bg-gradient-to-r from-amber-400 to-amber-600 hover:from-amber-500 hover:to-amber-700 text-white shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40;
+}
+
+/* Purple button styles */
+.purple-button {
+  @apply bg-gradient-to-r from-purple-500 to-purple-700 hover:from-purple-600 hover:to-purple-800 text-white shadow-lg shadow-purple-500/20 hover:shadow-purple-500/40;
+}
+
+/* Gold-purple button styles */
+.gold-purple-button {
+  @apply bg-gradient-to-r from-amber-400 to-purple-500 hover:from-amber-500 hover:to-purple-600 text-white shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40;
+}
